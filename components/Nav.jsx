@@ -10,13 +10,13 @@ const Nav = () => {
           <Link href="/favorites" className="font-nav text-dark-brown hover:text-brown mt-5 mr-4">
             My Favorites
           </Link>
-          <Link href="/" className="font-nav text-dark-brown hover:text-brown mt-5 mr-4">
-            Ratings
+          <Link href="/addpost" className="font-nav text-dark-brown hover:text-brown mt-5 mr-4">
+            Add Post
           </Link>
-          <Link href="/" className="font-nav text-dark-brown hover:text-brown mt-5 mr-4">
+          <Link href="/reviews" className="font-nav text-dark-brown hover:text-brown mt-5 mr-4">
             Reviews
           </Link>
-          <Link href="/" className="font-nav text-dark-brown hover:text-brown mt-5 mr-4">
+          <Link href="/recommendations" className="font-nav text-dark-brown hover:text-brown mt-5 mr-4">
             Recommendations
           </Link>
       </div>

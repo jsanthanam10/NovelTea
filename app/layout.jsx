@@ -2,6 +2,7 @@ import "@styles/globals.css";
 import Nav from "@components/Nav";
 import Title from "@components/Title";
 
+
 export const metadata = {
   title: "Novel-tea: Brewing Bookish Delights",
   description: "Brewing Bookish Delights",
@@ -10,14 +11,13 @@ export const metadata = {
 const RootLayout = ({ children }) => (
   <html lang='en'>
     <body className="m-0">
-      <main className='app'>
         <Title/>
         <Nav/>
         {children}
-      </main>
     </body>
   </html>
 );
 
 export default RootLayout;
+
 

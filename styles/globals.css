@@ -8,6 +8,7 @@
   Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
 */
 
+
 .font-title {
   font-family: 'Arapey';
 }
@@ -17,5 +18,13 @@
 }
 
 .font-aboutme {
+  font-family: 'Arapey';
+}
+
+.font-bookcard {
+  font-family: 'Caladea';
+}
+
+.font-addpost {
   font-family: 'Arapey';
 }

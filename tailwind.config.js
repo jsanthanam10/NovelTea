@@ -14,7 +14,8 @@ module.exports = {
       colors: {
         'beige': '#ebdbc4',
         'dark-brown': '#4b371c',
-        'gold' : 'FFD700',
+        'darker-brown': '#231709',
+        'off-white' : '#F9F5EC',
       }
     },
   },

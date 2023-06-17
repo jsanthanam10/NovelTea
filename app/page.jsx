@@ -20,7 +20,7 @@ const Home = () => (
             <div className="rounded-full w-80 h-80 overflow-hidden border-4 border-dark-brown">
               <img
                 src="/images/profile.jpg"
-                alt="Profile Picture"
+                alt="Profile"
                 className="w-full h-full object-cover rounded-full"
                 style={{ objectPosition: 'center top' }}
               />
