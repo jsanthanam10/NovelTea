@@ -8,7 +8,7 @@ export const metadata = {
   description: "Brewing Bookish Delights",
 };
 
-const RootLayout = ({ children }) => (
+const RootLayout = ({children}) => (
   <html lang='en'>
     <body className="m-0">
         <Title/>

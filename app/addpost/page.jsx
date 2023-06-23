@@ -7,6 +7,7 @@ const Home = () => {
   const [cover, setCover] = useState('');
   const [review, setReview] = useState('');
   const [rating, setRating] = useState('');
+  const [categories, setCategories] = useState('');
   const [submitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
@@ -18,12 +19,13 @@ const Home = () => {
     setError(false);
 
     try {
+      const categoriesArray = categories.split(',').map(category => category.trim());
       const response = await fetch("/api/addBook/", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ title, author, cover, review, rating })
+        body: JSON.stringify({ title, author, cover, review, rating, categories: categoriesArray })
       });
       if(response.ok){
         setSuccess(true);
@@ -32,16 +34,12 @@ const Home = () => {
         setCover('');
         setReview('');
         setRating('');
+        setCategories('');
         setTimeout(() => {
           setSuccess(false);
         }, 5000);
       } else {
         setError(true);
-        setTitle('');
-        setAuthor('');
-        setCover('');
-        setReview('');
-        setRating('');
         setTimeout(() => {
           setError(false);
         }, 5000);
@@ -80,6 +78,7 @@ const Home = () => {
             <input className="border-2 border-dark-brown p-4 w-full bg-off-white" type="text" value={cover} onChange={(e) => setCover(e.target.value)} placeholder="Cover URL" required />
             <textarea className="border-2 border-dark-brown p-4 h-60 w-full resize-y bg-off-white" value={review} onChange={(e) => setReview(e.target.value)} placeholder="Review" required></textarea>
             <input className="border-2 border-dark-brown p-4 w-full bg-off-white" type="number" min="1" max="5" value={rating} onChange={(e) => setRating(e.target.value)} placeholder="Rating" required />
+            <input className="border-2 border-dark-brown p-4 w-full bg-off-white" type="text" value={categories} onChange={(e) => setCategories(e.target.value)} placeholder="Categories" required />
             <button className="border-2 border-dark-brown bg-beige p-4 w-full bg-beige" type="submit">Add Post</button>
           </div>
         </div>

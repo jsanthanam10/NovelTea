@@ -13,6 +13,7 @@ export const POST = async (req) => {
             cover: body.cover,
             review: body.review,
             rating: body.rating,
+            categories: body.categories,
         })
         console.log('book info received')
         console.log('NEW BOOK INFO', newBook)

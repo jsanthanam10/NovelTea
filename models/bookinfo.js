@@ -21,6 +21,10 @@ const bookSchema = new Schema({
     rating : {
         type: Number,
         required: [true, 'Rating is Required'],
+    },
+    categories : {
+        type: [String],
+        required: [true, 'Categories are Required'],
     }
 }) 
 
