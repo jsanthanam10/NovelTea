@@ -5,6 +5,17 @@ module.exports = {
     images: {
       domains: ['localhost'], // if the images are hosted locally
     },
+    headers: () => [
+      {
+        source: '/',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-store',
+          },
+        ],
+      },
+    ],
   }
   
 

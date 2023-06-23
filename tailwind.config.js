@@ -16,6 +16,7 @@ module.exports = {
         'dark-brown': '#4b371c',
         'darker-brown': '#231709',
         'off-white' : '#F9F5EC',
+        'book-border' : '#a68d57',
       }
     },
   },

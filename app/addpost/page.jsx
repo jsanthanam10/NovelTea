@@ -66,13 +66,13 @@ const Home = () => {
         }}
       />
   
-      <h1 className="absolute top-8 left-1/2 transform -translate-x-1/2 text-4xl font-addpost text-dark-brown">
+      <h1 className="absolute top-12 left-1/2 transform -translate-x-1/2 text-4xl font-addpost text-dark-brown">
         Add Post
       </h1>
       {success && <div className="absolute top-0 right-0 m-4 bg-green-400 text-white p-2 rounded">Book has been successfully added!</div>}
       {error && <div className="absolute top-0 right-0 m-4 bg-red-500 text-white p-2 rounded">Failed to add book. Please try again!</div>}
       <form onSubmit={handleSubmit}>
-        <div className="absolute inset-x-0 bottom-8 flex items-center justify-center">
+        <div className="absolute inset-x-0 bottom-20 top-5 flex items-center justify-center">
         <div className="w-full max-w-xl">
           <div className="flex flex-col space-y-4">
             <input className="border-2 border-dark-brown p-4 w-full bg-off-white" type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" required />
@@ -85,10 +85,9 @@ const Home = () => {
         </div>
       </div>
       </form>
-
     </section>
   );
-  
+
   
 }
 
