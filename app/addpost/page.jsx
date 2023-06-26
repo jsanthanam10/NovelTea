@@ -1,5 +1,15 @@
 "use client"
 import { useState } from 'react';
+import Select from 'react-select';
+
+const options = [
+  { value: 'My Favorites', label: 'My Favorites' },
+  { value: 'Philosophical', label: 'Philosophical' },
+  { value: 'Found Family', label: 'Found Family' },
+  { value: 'Adventure', label: 'Adventure' },
+  { value: 'Romance', label: 'Romance' },
+  { value: 'Fiction', label: 'Fiction' }
+];
 
 const Home = () => {
   const [title, setTitle] = useState('');
@@ -11,6 +21,11 @@ const Home = () => {
   const [submitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+  const [selectedOptions, setSelectedOptions] = useState([]);
+
+  const handleSelectChange = (selectedOptions) => {
+    setSelectedOptions(selectedOptions);
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +34,7 @@ const Home = () => {
     setError(false);
 
     try {
-      const categoriesArray = categories.split(',').map(category => category.trim());
+      const categoriesArray = selectedOptions.map(option => option.value);
       const response = await fetch("/api/addBook/", {
         method: "POST",
         headers: {
@@ -35,6 +50,7 @@ const Home = () => {
         setReview('');
         setRating('');
         setCategories('');
+        setSelectedOptions([]);
         setTimeout(() => {
           setSuccess(false);
         }, 5000);
@@ -54,6 +70,10 @@ const Home = () => {
       setIsSubmitting(false);
     }
   };
+
+  const handleCategoriesChange = (event) => {
+    setCategories(Array.from(event.target.selectedOptions, option => option.value));
+  }
 
   return (
     <section className="w-full h-screen relative flex">
@@ -78,7 +98,24 @@ const Home = () => {
             <input className="border-2 border-dark-brown p-4 w-full bg-off-white" type="text" value={cover} onChange={(e) => setCover(e.target.value)} placeholder="Cover URL" required />
             <textarea className="border-2 border-dark-brown p-4 h-60 w-full resize-y bg-off-white" value={review} onChange={(e) => setReview(e.target.value)} placeholder="Review" required></textarea>
             <input className="border-2 border-dark-brown p-4 w-full bg-off-white" type="number" min="1" max="5" value={rating} onChange={(e) => setRating(e.target.value)} placeholder="Rating" required />
-            <input className="border-2 border-dark-brown p-4 w-full bg-off-white" type="text" value={categories} onChange={(e) => setCategories(e.target.value)} placeholder="Categories" required />
+            <Select
+              isMulti
+              name="categories"
+              options={options}
+              className="basic-multi-select"
+              classNamePrefix="select"
+              onChange={handleSelectChange}
+              value={selectedOptions}
+              placeholder = "Select Categories"
+              // make the background color #F9F5EC and the border #4b371c
+              styles={{
+                control: (provided) => ({
+                  ...provided,
+                  backgroundColor: '#F9F5EC',
+                  border: '2px solid #4b371c',
+                }),
+              }}
+            />
             <button className="border-2 border-dark-brown bg-beige p-4 w-full bg-beige" type="submit">Add Post</button>
           </div>
         </div>
